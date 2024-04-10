@@ -1,0 +1,17 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+{% block title %}
+    Выход из аккаунта
+{% endblock %}
+
+{% block body %}
+<div class="exit">
+    <div class="form">
+        <h2>Вы вышли из аккаунта</h2>
+        <form action="{% url 'login' %}">
+            <button class="body-buttons">Войти</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

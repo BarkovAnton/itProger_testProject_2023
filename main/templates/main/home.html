@@ -1,0 +1,19 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block body %}
+    <div class="home">
+        <div class="home-info">
+            <p>Сокра.тим</p>
+            <p>Быстро сократим любую длинную ссылку для вашего проекта</p>
+            <form action="{% url 'profile' %}">
+                <button class="body-buttons">Кабинет пользователя</button>
+            </form>
+        </div> 
+    </div>
+{% endblock %}
+

@@ -1,0 +1,35 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+{% block title %}
+    Кабинет пользователя
+{% endblock %}
+
+{% block body %}
+<div class="profile">
+    <div class="form">
+        <h2>Кабинет пользователя</h2>
+        
+        {% if not user_update.errors %}
+            <strong class="">@{{ user.username }}</strong>
+        {% endif %}
+        
+        {% if user.email %}
+            <span class=""><b>Email: </b>{{ user.email }}</span>
+        {% endif %}
+
+        <form action="{% url 'exit' %}">
+            <button class="body-buttons">Выйти</button>
+        </form>
+    </div>
+    <br>
+    <div class="form">
+        <h2>Обновить профиль</h2>
+        <form method="post" class="form-info">
+            {% csrf_token %}
+            {{ user_update.as_p }}
+            <button type="submit" class="body-buttons">Обновить</button>
+        </form>
+    </div>   
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block body %}
+<div class="login">
+    <div class="form">
+        <h1>Авторизация</h1>
+        <form method="post" class="form-info h-text-info">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="body-buttons">Войти</button>
+        </form>  
+    </div>
+</div>
+{% endblock %}

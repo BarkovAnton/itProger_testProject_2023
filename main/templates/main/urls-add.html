@@ -1,0 +1,28 @@
+{% extends 'main/main.html' %}
+{% load static %}
+
+{% block title %}
+    Ссылки
+{% endblock %}
+
+{% block body %}
+<div class="urlsadd">
+    <div class="form">
+        <h2>{{ title }}</h2>
+        <form method="post" class="form-info">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="body-buttons">{{ btn_text }}</button>
+        </form>  
+    </div>
+    <br>
+    <div class="form">
+        <h2>Доступные ссылки</h2>
+        <div class="form-links">
+            {% for link in links %}
+            <p>Ссылка -<a href="{{ link.url_large }}" target="_blank">/link/{{ link.url_small }}</a></p>
+            {% endfor %}
+        </div>    
+    </div>
+</div>
+{% endblock %}
